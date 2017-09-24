@@ -27,6 +27,19 @@ const functions = {
     borderRadius: hscale
 }
 
+export const Colors = {
+    red: '#e74c3c',
+    green: '#2ecc71',
+    blue: '#3498db',
+    orange: '#f39c12',
+    gray: '#7f8c8d',
+    darkGray: '#34495e',
+    purple: '#9b59b6',
+    yellow: '#ffdc47',
+    white: '#ffffff',
+    transparent: 'transparent'
+};
+
 export default class Style {
 
     static scale = (styles) => {

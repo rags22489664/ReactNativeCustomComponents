@@ -5,7 +5,8 @@ import {
   View
 } from 'react-native';
 
-import { Text, Style } from './components/index';
+import { Text, Style, TextInput, Icon, Icons } from './components/index';
+import _ from 'lodash';
 
 export default class ReactNativeCustomComponents extends Component {
 
@@ -23,15 +24,26 @@ export default class ReactNativeCustomComponents extends Component {
     return (
       <View>
         <Text style={styles.text}>{this.state.time}</Text>
+        <TextInput style={styles.input} required />
+        <Icon icon={Icons.cross} style={styles.icon} />
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create(Style.scale({
+const styles = {
   text: {
     fontSize: 20,
+    margin: 20
+  },
+  input: {
+    margin: 20
+  },
+  icon: {
+    fontSize: 20
   }
-}));
+};
+
+styles = StyleSheet.create(Style.scale(styles));
 
 AppRegistry.registerComponent('ReactNativeCustomComponents', () => ReactNativeCustomComponents);
