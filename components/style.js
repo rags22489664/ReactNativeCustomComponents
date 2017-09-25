@@ -10,7 +10,7 @@ const hscale = size => width / guidelineBaseWidth * size;
 const vscale = size => height / guidelineBaseHeight * size;
 const mscale = (size, factor = 0.5) => size + (hscale(size) - size) * factor;
 
-const functions = {
+export const Functions = {
     fontSize: hscale,
     marginTop: hscale,
     marginBottom: hscale,
@@ -45,8 +45,8 @@ export default class Style {
     static scale = (styles) => {
         _.forEach(styles, (style, key) => {
             _.forEach(style, (value, prop) => {
-                if (_.has(functions, prop)) {
-                    style[prop] = functions[prop](value);
+                if (_.has(Functions, prop)) {
+                    style[prop] = Functions[prop](value);
                 }
             });
         });

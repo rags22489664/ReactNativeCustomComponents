@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
-  View
+  View,
+  ToastAndroid
 } from 'react-native';
 
-import { Text, Style, TextInput, Icon, Icons } from './components/index';
+import { Text, Style, TextInput, Icon, Icons, Button, BorderedButton, CircularButton, IconButton, Colors } from './components/index';
 import _ from 'lodash';
 
 export default class ReactNativeCustomComponents extends Component {
@@ -25,9 +26,16 @@ export default class ReactNativeCustomComponents extends Component {
       <View>
         <Text style={styles.text}>{this.state.time}</Text>
         <TextInput style={styles.input} required />
-        <Icon icon={Icons.cross} style={styles.icon} />
+        <Button onPress={this.onPress} text="Click me" icon={Icons.cross} disabled={false} style={styles.button} color={Colors.green} textColor={Colors.white} />
+        <BorderedButton onPress={this.onPress} text="Click me" icon={Icons.cross} disabled={false} style={styles.button} color={Colors.red} />
+        <CircularButton onPress={this.onPress} text="Click me" icon={Icons.cross} disabled={false} style={styles.button} color={Colors.red} iconColor={Colors.white} />
+        <IconButton onPress={this.onPress} text="Click me" icon={Icons.cross} disabled={false} style={styles.button} color={Colors.red}/>
       </View>
     );
+  }
+
+  onPress = () => {
+    ToastAndroid.show("Button pressed", ToastAndroid.SHORT);
   }
 }
 
@@ -41,6 +49,9 @@ const styles = {
   },
   icon: {
     fontSize: 20
+  },
+  button: {
+    margin: 20
   }
 };
 
