@@ -16,6 +16,9 @@ export default class ReactNativeCustomComponents extends Component {
     this.state = {
       time: new Date().toUTCString()
     };
+  }
+
+  componentDidMount = () => {
     setInterval(() => {
       this.setState({ time: new Date().toUTCString() });
     }, 1000);
@@ -25,11 +28,11 @@ export default class ReactNativeCustomComponents extends Component {
     return (
       <View>
         <Text style={styles.text}>{this.state.time}</Text>
-        <TextInput ref="input" style={styles.input} required clear password/>
+        <TextInput ref="input" style={styles.input} required clear password />
         <Button onPress={this.onPress} text="Click me" icon={Icons.cross} disabled={false} style={styles.button} color={Colors.green} textColor={Colors.white} />
         <BorderedButton onPress={this.onPress} text="Click me" icon={Icons.cross} disabled={false} style={styles.button} color={Colors.red} />
         <CircularButton onPress={this.onPress} text="Click me" icon={Icons.cross} disabled={false} style={styles.button} color={Colors.red} iconColor={Colors.white} />
-        <IconButton onPress={this.onPress} text="Click me" icon={Icons.cross} disabled={false} style={styles.button} color={Colors.red}/>
+        <IconButton onPress={this.onPress} text="Click me" icon={Icons.cross} disabled={false} style={styles.button} color={Colors.red} />
       </View>
     );
   }

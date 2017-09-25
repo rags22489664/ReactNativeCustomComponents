@@ -254,6 +254,7 @@ const styles = {
         elevation: 2
     },
     view: {
+        padding: 5,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center'
@@ -264,7 +265,6 @@ const styles = {
     },
     icon: {
         fontSize: 15,
-        padding: 2
     },
     disabled: {
         borderColor: Colors.gray,

@@ -5,7 +5,8 @@ import _ from 'lodash';
 export const Icons = {
     cross: 'cross',
     eyeOpen: 'eyeOpen',
-    eyeClose: 'eyeClose'
+    eyeClose: 'eyeClose',
+    magnify: 'magnify'
 };
 
 export const Family = {
@@ -16,7 +17,8 @@ export const Mappings = {
     MaterialCommunityIcons: {
         cross: 'close',
         eyeOpen: 'eye-outline',
-        eyeClose: 'eye-off-outline'
+        eyeClose: 'eye-off-outline',
+        magnify: 'magnify'
     }
 }
 

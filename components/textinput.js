@@ -17,6 +17,7 @@ export default class TextInput extends PureComponent {
             style: {},
             secured: this.props.password ? true : false
         };
+        this.value = null;
     }
 
     render = () => {
@@ -25,14 +26,15 @@ export default class TextInput extends PureComponent {
                 <TextInputRN {...this.props} ref="input" onChangeText={this.onChangeText} style={styles.input} secureTextEntry={this.state.secured} />
                 {this.props.clear && <IconButton icon={Icons.cross} style={styles.icon} onPress={this.clear} />}
                 {this.props.password && <IconButton icon={this.state.secured ? Icons.eyeOpen : Icons.eyeClose} style={styles.icon} onPress={this.toggleSecured} />}
+                {this.props.icon && <IconButton icon={this.props.icon} style={styles.icon} onPress={this.props.iconClick} />}
             </View>
         );
     }
 
     onChangeText = (value) => {
-        value = _.trim(value);
-        this.onChangeTextValidate(value);
-        this.onChangeTextPropogate(value);
+        this.value = _.trim(value);
+        this.onChangeTextValidate(this.value);
+        this.onChangeTextPropogate(this.value);
     }
 
     onChangeTextValidate = (value) => {
@@ -63,7 +65,7 @@ export default class TextInput extends PureComponent {
     }
 
     validate = () => {
-        this.onChangeText(this.refs.input._lastNativeText);
+        this.onChangeText(this.value);
     }
 
     toggleSecured = () => {
@@ -74,6 +76,8 @@ export default class TextInput extends PureComponent {
 
 const styles = {
     view: {
+        elevation: 2,
+        backgroundColor: Colors.white,
         borderWidth: 1,
         borderColor: Colors.gray,
         flexDirection: 'row',
