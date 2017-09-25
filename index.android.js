@@ -25,7 +25,7 @@ export default class ReactNativeCustomComponents extends Component {
     return (
       <View>
         <Text style={styles.text}>{this.state.time}</Text>
-        <TextInput style={styles.input} required />
+        <TextInput ref="input" style={styles.input} required clear password/>
         <Button onPress={this.onPress} text="Click me" icon={Icons.cross} disabled={false} style={styles.button} color={Colors.green} textColor={Colors.white} />
         <BorderedButton onPress={this.onPress} text="Click me" icon={Icons.cross} disabled={false} style={styles.button} color={Colors.red} />
         <CircularButton onPress={this.onPress} text="Click me" icon={Icons.cross} disabled={false} style={styles.button} color={Colors.red} iconColor={Colors.white} />
@@ -35,7 +35,7 @@ export default class ReactNativeCustomComponents extends Component {
   }
 
   onPress = () => {
-    ToastAndroid.show("Button pressed", ToastAndroid.SHORT);
+    this.refs.input.validate();
   }
 }
 

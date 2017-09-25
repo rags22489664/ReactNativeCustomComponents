@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { TextInput as TextInputRN, View, StyleSheet } from 'react-native';
 import Style, { Colors } from './style';
+import { IconButton } from './button';
+import { Icons } from './icon';
 import _ from 'lodash';
 
 TextInputRN.defaultProps = {
@@ -12,14 +14,17 @@ export default class TextInput extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            style: {}
+            style: {},
+            secured: this.props.password ? true : false
         };
     }
 
     render = () => {
         return (
             <View style={[styles.view, this.props.style, this.state.style]}>
-                <TextInputRN {...this.props} ref="input" onChangeText={this.onChangeText} style={styles.input} />
+                <TextInputRN {...this.props} ref="input" onChangeText={this.onChangeText} style={styles.input} secureTextEntry={this.state.secured} />
+                {this.props.clear && <IconButton icon={Icons.cross} style={styles.icon} onPress={this.clear} />}
+                {this.props.password && <IconButton icon={this.state.secured ? Icons.eyeOpen : Icons.eyeClose} style={styles.icon} onPress={this.toggleSecured} />}
             </View>
         );
     }
@@ -35,6 +40,7 @@ export default class TextInput extends PureComponent {
             let style;
             if (_.isEmpty(value)) {
                 style = styles.invalid;
+                this.focus();
             } else {
                 style = styles.valid;
             }
@@ -48,7 +54,7 @@ export default class TextInput extends PureComponent {
 
     clear = () => {
         this.refs.input.clear();
-        this.onChangeTextPropogate("");
+        this.onChangeText("");
         this.focus();
     }
 
@@ -57,7 +63,11 @@ export default class TextInput extends PureComponent {
     }
 
     validate = () => {
-        console.log(this.refs.input);
+        this.onChangeText(this.refs.input._lastNativeText);
+    }
+
+    toggleSecured = () => {
+        this.setState({ secured: !this.state.secured });
     }
 
 }
@@ -65,7 +75,9 @@ export default class TextInput extends PureComponent {
 const styles = {
     view: {
         borderWidth: 1,
-        borderColor: Colors.gray
+        borderColor: Colors.gray,
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     invalid: {
         borderColor: Colors.red
@@ -78,6 +90,10 @@ const styles = {
         paddingBottom: 1,
         paddingLeft: 5,
         paddingRight: 5,
+        flex: 1
+    },
+    icon: {
+        padding: 3
     }
 };
 

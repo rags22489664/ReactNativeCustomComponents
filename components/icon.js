@@ -3,7 +3,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import _ from 'lodash';
 
 export const Icons = {
-    cross: 'cross'
+    cross: 'cross',
+    eyeOpen: 'eyeOpen',
+    eyeClose: 'eyeClose'
 };
 
 export const Family = {
@@ -12,7 +14,9 @@ export const Family = {
 
 export const Mappings = {
     MaterialCommunityIcons: {
-        cross: 'close'
+        cross: 'close',
+        eyeOpen: 'eye-outline',
+        eyeClose: 'eye-off-outline'
     }
 }
 
