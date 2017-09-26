@@ -6,7 +6,9 @@ export const Icons = {
     cross: 'cross',
     eyeOpen: 'eyeOpen',
     eyeClose: 'eyeClose',
-    magnify: 'magnify'
+    magnify: 'magnify',
+    arrowDownCircle: 'arrowDownCircle',
+    arrowUpCircle: 'arrowUpCircle'
 };
 
 export const Family = {
@@ -18,7 +20,9 @@ export const Mappings = {
         cross: 'close',
         eyeOpen: 'eye-outline',
         eyeClose: 'eye-off-outline',
-        magnify: 'magnify'
+        magnify: 'magnify',
+        arrowDownCircle: 'arrow-down-drop-circle-outline',
+        arrowUpCircle: 'arrow-up-drop-circle-outline'
     }
 }
 
