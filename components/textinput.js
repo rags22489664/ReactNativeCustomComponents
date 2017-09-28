@@ -78,8 +78,6 @@ const styles = {
     view: {
         elevation: 2,
         backgroundColor: Colors.white,
-        borderWidth: 1,
-        borderColor: Colors.gray,
         flexDirection: 'row',
         alignItems: 'center'
     },

@@ -48,8 +48,8 @@ export default class Card extends PureComponent {
 
 const styles = {
     card: {
-        borderWidth: 1,
-        borderColor: Colors.gray
+        elevation: 2,
+        backgroundColor: Colors.white
     },
     section: {
         padding: 5
@@ -69,7 +69,7 @@ const styles = {
         fontSize: 12,
     },
     headerTitleIcon: {
-        fontSize: 13,
+        fontSize: 12,
         paddingRight: 5
     }
 };
